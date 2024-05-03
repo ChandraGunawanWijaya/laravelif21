@@ -1,5 +1,7 @@
 <?php
 
+
+use App\Http\Controllers\FakultasController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -13,3 +15,5 @@ route::get('about', function(){
 route::get('profile',function(){
     return view('profile');
 });
+
+route::resource('fakultas', FakultasController::class);
