@@ -12,8 +12,12 @@ class ProdiController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         $prodi = Prodi::all();
         return view('Fakultas.index')->with('prodi', $prodi);
+=======
+        //
+>>>>>>> 4dabc282deb714296f1d82b51a8df713bf493c99
     }
 
     /**
