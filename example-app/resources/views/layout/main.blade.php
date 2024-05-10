@@ -10,7 +10,7 @@
 <body>
     <h1>Universitas mdp</h1>
      <a href="{{ url('fakultas') }}">List</a>  <a href="{{ url('fakultas/create') }}">Tambah</a>
-    
+
      @yield('content')
 
      &copy; 2024 Universitas MDP

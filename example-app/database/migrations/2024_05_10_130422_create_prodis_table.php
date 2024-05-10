@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('fakultas', function (Blueprint $table) {
-            // $table->id(); auto increment
+        Schema::create('prodis', function (Blueprint $table) {
             $table->uuid('id');
             $table->primary('id');
             $table->string('nama');
-            $table->string('singkatan', 4);
+            $table->uuid('fakultas_id');
+            $table->foreign('fakultas_id')->references('id')->on('fakultas');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('fakultas');
+        Schema::dropIfExists('prodis');
     }
 };

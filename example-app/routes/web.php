@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\FakultasController;
+use App\Http\Controllers\ProdiController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,3 +18,5 @@ route::get('profile',function(){
 });
 
 route::resource('fakultas', FakultasController::class);
+route::resource('prodi', ProdiController::class);
+
