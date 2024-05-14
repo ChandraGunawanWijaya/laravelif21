@@ -3,7 +3,7 @@
 
 @section('content')
 <h2>Daftar Fakultas</h2>
-<p>Halaman Daftar Fakultas</p>
+<p>ini Halaman Daftar Fakultas</p>
 
     @foreach ($fakultas as $item)
     {{$item['nama']}} {{$item['singkatan']}} <br>

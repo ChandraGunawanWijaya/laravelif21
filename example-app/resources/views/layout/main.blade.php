@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>@yield('title')</title>
 </head>
 <body>
@@ -13,18 +12,5 @@
    @yield('content') 
 
    &copy; 2024 Universitas mdp
-=======
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title')</title>
-
-</head>
-<body>
-    <h1>Universitas mdp</h1>
-     <a href="{{ url('fakultas') }}">List</a>  <a href="{{ url('fakultas/create') }}">Tambah</a>
-
-     @yield('content')
-
-     &copy; 2024 Universitas MDP
->>>>>>> 48a1d81fa167758325e40f7c7a30791cb5f65dde
 </body>
 </html>

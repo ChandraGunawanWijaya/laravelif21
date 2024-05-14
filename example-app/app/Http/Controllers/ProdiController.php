@@ -31,7 +31,13 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val = $request->validate([
+            'nama' => 'required',
+            'fakultas_id' => 'required'
+        ]);
+
+        Prodi::create($val);
+        return redirect()->route('prodi.index');
     }
 
     /**

@@ -13,9 +13,6 @@ class FakultasController extends Controller
     public function index()
     {
         $fakultas = Fakultas::all();
-
-        return view('Fakultas.index')->with('fakultas', $fakultas);
-
         return view('Fakultas.index')->with('fakultas', $fakultas);
 
     }
