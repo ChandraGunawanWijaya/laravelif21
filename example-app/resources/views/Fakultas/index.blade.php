@@ -9,8 +9,6 @@
     {{$item['nama']}} {{$item['singkatan']}} <br>
     @endforeach
 
-    @endforeach
-
     <div class="row">
     <div class="col-lg-6 grid-margin stretch-card">
               <div class="card">
