@@ -14,7 +14,7 @@
         @enderror
    
     Nama Fakultas: <select name="fakultas_id" id="">
-        @foreach ($fakultas as $item )
+        @foreach ($Fakultas as $item )
             <option value="{{$item["id"]}}">{{$Item["nama"]}} </option>
         @endforeach
     </select>
@@ -24,7 +24,5 @@
         @enderror
 
     </form>
-
-    
 @endsection
     

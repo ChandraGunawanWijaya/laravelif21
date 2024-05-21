@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kota;
+use App\Models\kota;
 use Illuminate\Http\Request;
 
 class KotaController extends Controller
@@ -34,7 +34,7 @@ class KotaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Kota $kota)
+    public function show(kota $kota)
     {
         //
     }
@@ -42,7 +42,7 @@ class KotaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Kota $kota)
+    public function edit(kota $kota)
     {
         //
     }
@@ -50,7 +50,7 @@ class KotaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Kota $kota)
+    public function update(Request $request, kota $kota)
     {
         //
     }
@@ -58,7 +58,7 @@ class KotaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Kota $kota)
+    public function destroy(kota $kota)
     {
         //
     }

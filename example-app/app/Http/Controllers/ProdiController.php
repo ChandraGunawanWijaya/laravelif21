@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Prodi;
+use App\Models\Fakultas;
+use App\Models\prodi;
 use Illuminate\Http\Request;
 
 class ProdiController extends Controller
@@ -12,10 +13,8 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        $prodi = Prodi::all();
-        return view('Fakultas.index')->with('prodi', $prodi);
-        
-
+        $prodi = prodi::all();
+        return view('prodi.index')->with('prodi', $prodi);
     }
 
     /**
@@ -23,7 +22,8 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        //
+        $fakultas = Fakultas::all();
+        return view('prodi.create')->with('fakultas', $fakultas);
     }
 
     /**
@@ -32,18 +32,19 @@ class ProdiController extends Controller
     public function store(Request $request)
     {
         $val = $request->validate([
-            'nama' => 'required',
+            'nama' => 'required | unique:prodis',
             'fakultas_id' => 'required'
         ]);
 
         Prodi::create($val);
-        return redirect()->route('prodi.index');
+        return redirect()->route('Prodi.index')->with('success', $val ['nama'] . ' Berhasil Disimpan');
     }
+
 
     /**
      * Display the specified resource.
      */
-    public function show(Prodi $prodi)
+    public function show(prodi $prodi)
     {
         //
     }
@@ -51,7 +52,7 @@ class ProdiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Prodi $prodi)
+    public function edit(prodi $prodi)
     {
         //
     }
@@ -59,7 +60,7 @@ class ProdiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Prodi $prodi)
+    public function update(Request $request, prodi $prodi)
     {
         //
     }
@@ -67,7 +68,7 @@ class ProdiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Prodi $prodi)
+    public function destroy(prodi $prodi)
     {
         //
     }
