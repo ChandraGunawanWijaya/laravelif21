@@ -38,6 +38,7 @@ class ProdiController extends Controller
 
         Prodi::create($val);
         return redirect()->route('prodi.index');
+        
     }
 
     /**
