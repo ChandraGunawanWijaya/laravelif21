@@ -13,17 +13,19 @@ class ProdiController extends Controller
      */
     public function index()
     {
-        $prodi = prodi::all();
-        return view('prodi.index')->with('prodi', $prodi);
+         $prodi = Prodi::all(); //selectprodi
+      return view('prodi.index')->with('prodi', $prodi);
+    
     }
+    
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        $fakultas = Fakultas::all();
-        return view('prodi.create')->with('fakultas', $fakultas);
+        $prodi = prodi::all();
+        return view('prodi.create')->with('prodi',$prodi);
     }
 
     /**
@@ -31,13 +33,9 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate([
-            'nama' => 'required | unique:prodis',
-            'fakultas_id' => 'required'
-        ]);
+        $val = $request->validate(['nama'=> 'required|unique:prodis','fakultas_id'=>'required']);// simpan kedalam tabel prodiProdi::create($val);// redirect ke tabel fakultas
+      return redirect()->route('prodi.index')->with('success', $val['nama'] . ' Berhasil Disimpan');
 
-        Prodi::create($val);
-        return redirect()->route('Prodi.index')->with('success', $val ['nama'] . ' Berhasil Disimpan');
     }
 
 
