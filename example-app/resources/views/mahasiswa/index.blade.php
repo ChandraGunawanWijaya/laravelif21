@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Daftar Fakultas')
+@section('title', 'Daftar Mahasiswa')
 
 @section('content')
 
@@ -8,26 +8,30 @@
   <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Daftar Prodi</h4>
+        <h4 class="card-title">Daftar Mahasiswa</h4>
         <p class="card-description">
-         List Data Prodi
+         List Data Mahasiswa
         </p>
-        <a href="{{url('prodi/create')}}" type="button" class="btn btn-success btn-rounded btn-fw">Tambah</a>
+        <a href="{{ url('mahasiswa/create') }}" type="button" class="btn btn-success btn-rounded btn-fw">Tambah</a>
         <div class="table-responsive">
           <table class="table table-hover">
             <thead>
               <tr>
-                <th>Nama Prodi</th>
-                <th>Fakultas</th>
-                <th>Singkatan</th>
+                <th>NPM</th>
+                <th>Nama Mahasiswa</th>
+                <th>Prodi</th>
+                <th>Asal Kota</th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($prodi as $item)
+              @foreach ($mahasiswa as $item)
               <tr>
-                <td>{{$item['nama']}}</td>
-                <td>{{$item['fakultas']['nama']}}</td>
-                <td>{{$item['fakultas']['singkatan']}}</td>
+                <td>{{ $item['npm'] }}</td>
+                <td>{{ $item['nama'] }}</td>
+                <td>{{ $item['prodi']['nama']}}</td>
+                <td>{{ $item['kota']['nama']}}</td>
+                <td><a href="{{route('mahasiswa.show', $item[id])}}" class="btn btn-sw
+                "></a></td>
               </tr>
               @endforeach
             </tbody>
@@ -39,15 +43,13 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-            @if (session('success'))
-            <script>
-              Swal.fire({
-                title: "Good Job Bro",
-                text: "{{session ('success')}}",
-                icon: "success";
-              });
-            </script>
-            @endif
-@endsection 
-
-{{-- end sec untuk lebih dr satu baris --}}
+@if (session('success'))
+<script>
+  Swal.fire({
+    title: "Good Job",
+    text: "{{session('success')}}",
+    icon: "success"
+  });
+</script>
+@endif
+@endsection

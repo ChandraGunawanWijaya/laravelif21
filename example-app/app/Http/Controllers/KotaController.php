@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\kota;
+use App\Models\Kota;
 use Illuminate\Http\Request;
 
 class KotaController extends Controller
@@ -12,7 +12,8 @@ class KotaController extends Controller
      */
     public function index()
     {
-        //
+        $kota = Kota::all(); //select*kota
+        return view('kota.index')->with('kota', $kota);
     }
 
     /**
@@ -28,13 +29,19 @@ class KotaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $val = $request->validate([
+            'id'=> 'required|unique:kotas',
+            'nama_kota' => 'required',
+            'singkatan' => 'required'
+        ]);
+        Kota::create($val);
+        return redirect()->route('kota.index')->with('success', $val['nama_kota'] . ' Berhasil Disimpan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(kota $kota)
+    public function show(Kota $kota)
     {
         //
     }
@@ -42,7 +49,7 @@ class KotaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(kota $kota)
+    public function edit(Kota $kota)
     {
         //
     }
@@ -50,7 +57,7 @@ class KotaController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, kota $kota)
+    public function update(Request $request, Kota $kota)
     {
         //
     }
@@ -58,7 +65,7 @@ class KotaController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(kota $kota)
+    public function destroy(Kota $kota)
     {
         //
     }

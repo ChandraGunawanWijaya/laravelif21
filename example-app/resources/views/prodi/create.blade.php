@@ -15,7 +15,7 @@
    
     Nama Fakultas: <select name="fakultas_id" id="">
         @foreach ($fakultas as $item )
-            <option value="{{$item["id"]}}">{{$Item["nama"]}} </option>
+            <option value="{{$item["id"]}}">{{$item["nama"]}} </option>
         @endforeach
     </select>
     <button type="submit">Simpan</button>

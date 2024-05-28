@@ -24,8 +24,8 @@ class ProdiController extends Controller
      */
     public function create()
     {
-        $prodi = prodi::all();
-        return view('prodi.create')->with('prodi',$prodi);
+        $fakultas = fakultas::all();
+        return view('prodi.create')->with('fakultas',$fakultas);
     }
 
     /**
