@@ -11,27 +11,28 @@
         <p class="card-description">
           Formulir Tambah Mahasiswa
         </p>
-        <form class="forms-sample" action="{{ route('mahasiswa.store')}}" method="post" autocomplete="off">
+        <form class="forms-sample" action="{{ route('mahasiswa.store')}}" method="post" autocomplete="off" enctype="multipart/form-data">
+
           @csrf
 
           <div class="form-group">
             <label for="npm">NPM</label>
-            <input type="text" name="npm" id="" value="{{old('npm')}}" class="form-control"> 
-           @error('npm') 
+            <input type="text" name="npm" id="" value="{{old('npm')}}" class="form-control">
+           @error('npm')
            <span class="text-danger">{{$message}}</span>
            @enderror
           </div>
           <div class="form-group">
             <label for="nama">Nama Mahasiswa</label>
-            <input type="text" name="nama" id="" value="{{old('nama')}}" class="form-control"> 
-           @error('nama') 
+            <input type="text" name="nama" id="" value="{{old('nama')}}" class="form-control">
+           @error('nama')
            <span class="text-danger">{{$message}}</span>
            @enderror
           </div>
           <div class="form-group">
             <label for="tempat_lahir">Tempat Lahir</label>
-            <input type="text" name="tempat_lahir" id="" value="{{old('tempat_lahir')}}" class="form-control"> 
-           @error('tempat_lahir') 
+            <input type="text" name="tempat_lahir" id="" value="{{old('tempat_lahir')}}" class="form-control">
+           @error('tempat_lahir')
            <span class="text-danger">{{$message}}</span>
            @enderror
           </div>
@@ -44,8 +45,8 @@
           </div>
           <div class="form-group">
             <label for="alamat">Alamat</label>
-            <input type="text" name="alamat" id="" value="{{old('alamat')}}" class="form-control"> 
-           @error('alamat') 
+            <input type="text" name="alamat" id="" value="{{old('alamat')}}" class="form-control">
+           @error('alamat')
            <span class="text-danger">{{$message}}</span>
            @enderror
           </div>
@@ -73,12 +74,12 @@
           </div>
           <div class="form-group">
             <label for="url_foto">URL Foto</label>
-            <input type="text" name="url_foto" id="url_foto" value="{{ old('url_foto') }}" class="form-control">
+            <input type="file" name="url_foto" id="url_foto" value="{{ old('url_foto') }}" class="form-control">
             @error('url_foto')
             <span class="text-danger">{{ $message }}</span>
             @enderror
           </div>
-          <span class="text-danger">          
+          <span class="text-danger">
           </span>
           <button type="submit" class="btn btn-primary mr-2">Submit</button>
           <a href="{{url('mahasiswa')}}" class="btn btn-light">Cancel</a>
@@ -87,5 +88,5 @@
     </div>
   </div>
 </div>
-@endsection 
+@endsection
 {{-- end sec untuk lebih dr satu baris --}}
