@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Fakultas;
-use App\Models\prodi;
+use App\Models\Prodi;
 use Illuminate\Http\Request;
 
 class ProdiController extends Controller
@@ -13,19 +13,18 @@ class ProdiController extends Controller
      */
     public function index()
     {
-         $prodi = Prodi::all(); //selectprodi
-      return view('prodi.index')->with('prodi', $prodi);
-    
+        $prodi = Prodi::all(); //select*prodi
+        return view('prodi.index')
+        ->with('prodi', $prodi);
     }
-    
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        $fakultas = fakultas::all();
-        return view('prodi.create')->with('fakultas',$fakultas);
+        $fakultas = Fakultas::all();
+    return view('prodi.create')->with('fakultas', $fakultas);
     }
 
     /**
@@ -33,16 +32,22 @@ class ProdiController extends Controller
      */
     public function store(Request $request)
     {
-        $val = $request->validate(['nama'=> 'required|unique:prodis','fakultas_id'=>'required']);// simpan kedalam tabel prodiProdi::create($val);// redirect ke tabel fakultas
-      return redirect()->route('prodi.index')->with('success', $val['nama'] . ' Berhasil Disimpan');
-
+        // dd($request);
+        // validasi data input
+        $val = $request->validate([
+            'nama'=> 'required|unique:prodis',
+            'fakultas_id'=>'required'
+        ]);
+        // simpan kedalam tabel prodi
+        Prodi::create($val);
+        // redirect ke tabel fakultas
+        return redirect()->route('prodi.index')->with('success', $val['nama'] . ' Berhasil Disimpan');
     }
-
 
     /**
      * Display the specified resource.
      */
-    public function show(prodi $prodi)
+    public function show(Prodi $prodi)
     {
         //
     }
@@ -50,7 +55,7 @@ class ProdiController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(prodi $prodi)
+    public function edit(Prodi $prodi)
     {
         //
     }
@@ -58,7 +63,7 @@ class ProdiController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, prodi $prodi)
+    public function update(Request $request, Prodi $prodi)
     {
         //
     }
@@ -66,7 +71,7 @@ class ProdiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(prodi $prodi)
+    public function destroy(Prodi $prodi)
     {
         //
     }
