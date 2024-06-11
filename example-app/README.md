@@ -68,3 +68,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 @foreach ($mahasiswaprodis as $item)
             '{{ $item->nama }}', 
             @endforeach 
+
+
+$mahasiswaprodi = DB::select("SELECT mahasiswas.*, prodis.nama AS nama_prodi
+                FROM mahasiswas
+                JOIN prodis ON mahasiswas.prodi_id = prodis.id"
+                );
