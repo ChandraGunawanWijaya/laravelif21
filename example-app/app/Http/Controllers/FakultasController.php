@@ -30,6 +30,10 @@ class FakultasController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->user()->cannot('create' , fakultas::class))
+        // return redirect()->route('fakultas.index')->with('error', 'Anda Tidak Memiliki Akses');
+        abort(403, 'Anda Tidak Memiliki Akses');
+
         $val = $request->validate([
             'nama' => 'required',
             'singkatan' => 'required'

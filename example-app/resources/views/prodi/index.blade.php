@@ -12,8 +12,10 @@
         <p class="card-description">
          List Data Prodi
         </p>
+        @can('create', App\Model\Prodi::class)
         <a href="{{url('prodi/create')}}" type="button" class="btn btn-success btn-rounded btn-fw">Tambah</a>
         <div class="table-responsive">
+            @endcan
           <table class="table table-hover">
             <thead>
               <tr>
@@ -48,6 +50,6 @@
               });
             </script>
             @endif
-@endsection 
+@endsection
 
 {{-- end sec untuk lebih dr satu baris --}}

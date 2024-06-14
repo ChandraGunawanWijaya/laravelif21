@@ -37,6 +37,10 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->user()->cannot('delete' , Mahasiswa::class))
+        // return redirect()->route('fakultas.index')->with('error', 'Anda Tidak Memiliki Akses');
+        abort(403, 'Anda Tidak Memiliki Akses');
+
         //dd($request);
         //validasi
         $val = $request->validate([
@@ -49,7 +53,7 @@ class MahasiswaController extends Controller
             'prodi_id' => 'required',
             'url_foto' => 'required|file|image|mimes:png,jpg|max:5000'
         ]);
-        
+
         //ambil ektensi file
         $ext = $request->url_foto->getClientOriginalExtension(); //png/jpg
         //rename file, misalnya: 2327250005.png
@@ -91,6 +95,10 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, Mahasiswa $mahasiswa)
     {
+        if($request->user()->cannot('update' , Mahasiswa::class))
+        // return redirect()->route('fakultas.index')->with('error', 'Anda Tidak Memiliki Akses');
+        abort(403, 'Anda Tidak Memiliki Akses');
+
         if ($request->hasFile('url_foto')) {
             //hapus file lama
             FacadesFile::delete('foto/' . $mahasiswa['url_foto']);
