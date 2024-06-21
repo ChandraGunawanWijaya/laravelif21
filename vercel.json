@@ -18,6 +18,10 @@
             "dest": "/public/foto/"
         },
         {
+            "src": "/images/(.*)",
+            "dest": "/public/images/"
+        },
+        {
             "src": "/js/(.*)",
             "dest": "/public/js/"
         },
